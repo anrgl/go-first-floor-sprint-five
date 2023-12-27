@@ -129,7 +129,7 @@ func (w Walking) Calories() float64 {
 	heightCmInM := w.Height / CmInM
 	durationMinInHours := w.Duration.Hours() * MinInHours
 
-	return ((CaloriesWeightMultiplier * float64(w.Weight) * meanSpeedMInSec / heightCmInM) * CaloriesSpeedHeightMultiplier * float64(w.Weight)) * durationMinInHours
+	return (CaloriesWeightMultiplier*float64(w.Weight) + (meanSpeedMInSec/heightCmInM)*CaloriesSpeedHeightMultiplier*float64(w.Weight)) * durationMinInHours
 }
 
 // TrainingInfo возвращает структуру InfoMessage с информацией о проведенной тренировке.
